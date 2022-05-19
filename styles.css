@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --color-50: #f5f3ff;
+    --color-100: #ede9fe;
+    --color-200: #ddd6fe;
+    --color-300: #c4b5fd;
+    --color-400: #a78bfa;
+    --color-500: #8b5cf6;
+    --color-600: #7c3aed;
+    --color-700: #6d28d9;
+    --color-800: #5b21b6;
+    --color-900: #4c1d95;
+    --text-color: #1f2937;
+    --book-color: #e2e8f0;
+    --xxlarge: 2.5rem;
+    --xlarge: 2rem;
+    --large: 1.5rem;
+    --medium: 1.25rem;
+    --small: 1rem;
+    --xsmall: 0.75rem;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-list {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: min(5vw, 128px);
+}
+
+input[type="text"] {
+    display: flex;
+    width: auto;
+    font-size: 24px;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+}
+
+input[type="submit"] {
+    width: 200px;
+    background-color: white;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    padding: 12px;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.form-list-item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-container {
+    visibility: hidden;
+}
+
+.game-board-container {
+    display: grid;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 100px);
+}
+
+.game-box {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+}
+
+.row-top {grid-row: 1; border-bottom: 5px solid black;}
+.row-middle {grid-row: 2;}
+.row-bottom {grid-row: 3; border-top: 5px solid black;}
+.col-left {grid-column: 1; border-right: 5px solid black;}
+.col-center {grid-column: 2;}
+.col-right {grid-column: 3; border-left: 5px solid black;}
+
+.text {
+    color: var(--text-color);
+    text-align: center;
+}
+
+.text-xlarge {
+    font-size: var(--xxlarge);
+    font-weight: 700;
+}
+
+.text-large {
+    font-size: var(--large);
+    font-weight: 700;
+}
+
+.text-medium {
+    font-size: var(--medium);
+    font-weight: 500;
+}
+
+.text-small {
+    font-size: var(--small);
+}
+
+.text-xsmall {
+    font-size: var(--xsmall);
+    font-weight: 300;
+}
+
+.text-bold {
+    font-weight: 500;
+}
