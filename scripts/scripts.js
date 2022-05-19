@@ -18,12 +18,15 @@ function toggleDOM(e) {
 }
 
 function selectRandomLetter(e) {
+    if (e.target.textContent !== "") {
+        return;
+    }
     e.target.textContent = toggleValue === 1 ? "X" : "O"
     toggleValue *= -1
 }
 
-gameBox.forEach(() => {
-   this.addEventListener("click", selectRandomLetter)
+gameBox.forEach((box) => {
+   box.addEventListener("click", selectRandomLetter)
 });
 
 submitButton.addEventListener("click", toggleDOM)
