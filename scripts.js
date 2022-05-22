@@ -15,14 +15,22 @@ function playerMove(e) {
     const currentPlayer = board.getCurrentPlayer();
     currentPlayer.addSelection(e.target.getAttribute("data-id"));
     e.target.textContent = currentPlayer.boardLetter;
+
     if (board.isWinner(currentPlayer)) {
         currentPlayer.totalWins += 1
         board.resetToggleValue()
         board.playerOne.resetSelection();
         board.playerTwo.resetSelection();
         controller.updateWins(currentPlayer);
-        controller.createWinPrompt(currentPlayer);
+        controller.createWinPrompt(currentPlayer.playerName);
     } else {
+        if (board.getToggleValue() === 9) {
+            board.resetToggleValue()
+            board.playerOne.resetSelection();
+            board.playerTwo.resetSelection();
+            controller.createWinPrompt("Tie game, nobody")
+            return false;
+        }
         controller.updateTurnMessage(board.getNextPlayer());
     }
 }

@@ -116,7 +116,7 @@ const displayController = () => {
         playerScoreElement.textContent = winningPlayer.totalWins
     }
 
-    function createWinPrompt(winningPlayer) {
+    function createWinPrompt(winningPlayerName) {
         _winModalContainer.style.setProperty("display", "block");
 
         const boardBoxes = _gameBoardContainer.childNodes
@@ -131,7 +131,7 @@ const displayController = () => {
 
         let winningMessage = document.createElement("div");
         winningMessage.classList.add("text-medium","winning-message");
-        winningMessage.textContent = "Congrats, " + winningPlayer.playerName;
+        winningMessage.textContent = winningPlayerName + " wins!";
         _winPlayerMessage.appendChild(winningMessage);
 
         let nextGameButton = document.querySelector(".next-game-button");
@@ -143,7 +143,7 @@ const displayController = () => {
         clearBoard()
     }
 
-    return { generateBoard, resetBoardDOM, updateTurnMessage, updateWins, clearBoard, createWinPrompt };
+    return { generateBoard, resetBoardDOM, updateTurnMessage, updateWins, createWinPrompt };
 }
 
 export { displayController };
