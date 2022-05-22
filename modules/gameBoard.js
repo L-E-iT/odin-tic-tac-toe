@@ -46,7 +46,15 @@ const gameBoard = () => {
         _toggleValue = 0;
     }
 
-    return {playerTwo, playerOne, getCurrentPlayer, getNextPlayer, isWinner, resetToggleValue}
+    function resetGameState() {
+        playerOne.totalWins = 0;
+        playerTwo.totalWins = 0;
+        playerOne.resetSelection();
+        playerTwo.resetSelection();
+        resetToggleValue();
+    }
+
+    return {playerTwo, playerOne, getCurrentPlayer, getNextPlayer, isWinner, resetToggleValue, resetGameState}
 }
 
 export { gameBoard }

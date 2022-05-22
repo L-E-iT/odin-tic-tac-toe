@@ -36,5 +36,10 @@ function generateGame(e) {
     nameForm.reset();
 }
 
+function resetGame(e) {
+    board.resetGameState();
+    controller.resetBoardDOM(e)
+}
+
 nameForm.addEventListener("submit", generateGame)
-resetButton.addEventListener("click", controller.resetBoardDOM)
+resetButton.addEventListener("click", resetGame)
