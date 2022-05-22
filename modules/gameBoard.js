@@ -14,11 +14,15 @@ const gameBoard = () => {
             _toggleValue += 1;
         }
 
-        const getSelection = () => {
-            return _playerSelection
-        }
+        const resetSelection = () => {
+            _playerSelection = [];
+        };
 
-        return {playerName, totalWins, boardLetter, addSelection, getSelection}
+        const getSelection = () => {
+            return _playerSelection;
+        };
+
+        return {playerName, totalWins, boardLetter, addSelection, getSelection, resetSelection}
     }
 
     let playerOne = playerObj("X");
@@ -38,7 +42,11 @@ const gameBoard = () => {
             winningArray.every((square) => playerSelection.includes(square)))
     }
 
-    return {playerTwo, playerOne, getCurrentPlayer, getNextPlayer, isWinner}
+    function resetToggleValue() {
+        _toggleValue = 0;
+    }
+
+    return {playerTwo, playerOne, getCurrentPlayer, getNextPlayer, isWinner, resetToggleValue}
 }
 
 export { gameBoard }

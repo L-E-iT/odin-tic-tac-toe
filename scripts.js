@@ -5,15 +5,23 @@ const board = gameBoard();
 const controller = displayController();
 
 const nameForm = document.querySelector("form")
-const resetButton = document.querySelector("button")
+const resetButton = document.querySelector("#reset-btn")
 
 function playerMove(e) {
+    if (e.target.textContent !== "")  {
+        return false;
+    }
+
     const currentPlayer = board.getCurrentPlayer();
     currentPlayer.addSelection(e.target.getAttribute("data-id"));
     e.target.textContent = currentPlayer.boardLetter;
     if (board.isWinner(currentPlayer)) {
-        console.log("Winner", currentPlayer.playerName)
         currentPlayer.totalWins += 1
+        board.resetToggleValue()
+        board.playerOne.resetSelection();
+        board.playerTwo.resetSelection();
+        controller.updateWins(currentPlayer);
+        controller.createWinPrompt(currentPlayer);
     } else {
         controller.updateTurnMessage(board.getNextPlayer());
     }
@@ -29,4 +37,4 @@ function generateGame(e) {
 }
 
 nameForm.addEventListener("submit", generateGame)
-resetButton.addEventListener("click", controller.resetBoard)
+resetButton.addEventListener("click", controller.resetBoardDOM)
