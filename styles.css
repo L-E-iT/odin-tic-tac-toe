@@ -37,6 +37,10 @@ body {
     gap: 48px;
 }
 
+.form-container {
+    display: flex;
+}
+
 .form-container form {
     display: flex;
     flex-direction: column;
@@ -62,7 +66,7 @@ input[type="text"] {
     border-bottom: 1px solid var(--text-color);
 }
 
-input[type="submit"] {
+input[type="submit"], button {
     width: 200px;
     background-color: white;
     border: 1px solid var(--text-color);
@@ -70,7 +74,7 @@ input[type="submit"] {
     padding: 12px;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, button:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -82,13 +86,31 @@ input[type="submit"]:hover {
 }
 
 .game-container {
-    visibility: hidden;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-board-container {
     display: grid;
     grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(3, 100px);
+}
+
+.game-score-container {
+    display: flex;
+    flex-direction: row;
+    gap: min(5vw, 128px);
+}
+
+.player-score-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 24px;
 }
 
 .game-box {
@@ -99,6 +121,10 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     font-size: 90px;
+}
+
+button {
+    margin: 24px;
 }
 
 .row-top {grid-row: 1; border-bottom: 5px solid black;}
