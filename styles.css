@@ -3,18 +3,7 @@
 }
 
 :root{
-    --color-50: #f5f3ff;
-    --color-100: #ede9fe;
-    --color-200: #ddd6fe;
-    --color-300: #c4b5fd;
-    --color-400: #a78bfa;
-    --color-500: #8b5cf6;
-    --color-600: #7c3aed;
-    --color-700: #6d28d9;
-    --color-800: #5b21b6;
-    --color-900: #4c1d95;
     --text-color: #1f2937;
-    --book-color: #e2e8f0;
     --xxlarge: 2.5rem;
     --xlarge: 2rem;
     --large: 1.5rem;
