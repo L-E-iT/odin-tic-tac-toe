@@ -28,13 +28,17 @@ const gameBoard = () => {
         return _toggleValue % 2 === 0? playerOne : playerTwo;
     }
 
+    let getNextPlayer = () => {
+        return _toggleValue % 2 !== 0? playerTwo : playerOne;
+    }
+
     let isWinner = (player) => {
         const playerSelection = player.getSelection();
         return _winningBoards.some((winningArray) =>
             winningArray.every((square) => playerSelection.includes(square)))
     }
 
-    return {playerTwo, playerOne, getCurrentPlayer, isWinner}
+    return {playerTwo, playerOne, getCurrentPlayer, getNextPlayer, isWinner}
 }
 
 export { gameBoard }

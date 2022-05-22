@@ -90,6 +90,7 @@ input[type="submit"]:hover, button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 36px;
 }
 
 .game-board-container {
@@ -110,7 +111,6 @@ input[type="submit"]:hover, button:hover {
     justify-content: center;
     align-items: center;
     gap: 16px;
-    margin: 24px;
 }
 
 .game-box {

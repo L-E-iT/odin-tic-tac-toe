@@ -14,8 +14,19 @@ function playerMove(e) {
     if (board.isWinner(currentPlayer)) {
         console.log("Winner", currentPlayer.playerName)
         currentPlayer.totalWins += 1
+    } else {
+        controller.updateTurnMessage(board.getNextPlayer());
     }
 }
 
-nameForm.addEventListener("submit", controller.generateBoard.bind(null, playerMove))
+function generateGame(e) {
+    const formData = new FormData(nameForm)
+    board.playerOne.playerName = formData.get("playerOne");
+    board.playerTwo.playerName = formData.get("playerTwo")
+
+    controller.generateBoard(playerMove, formData, e)
+    nameForm.reset();
+}
+
+nameForm.addEventListener("submit", generateGame)
 resetButton.addEventListener("click", controller.resetBoard)
